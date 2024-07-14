@@ -8,6 +8,7 @@ import { useState } from "react"
 import { DateRange, DayPicker } from "react-day-picker"
 
 import { Button } from "../../../components/button"
+import { Input } from "../../../components/input";
 
 interface DestinationAndDateStepProps{
   isGuestsInputOpen: boolean,
@@ -41,21 +42,21 @@ export function DestinationAndDateStep({
     ? format(eventStartAndEndDates.from, "dd ' de ' LLL").concat(" a ").concat(format(eventStartAndEndDates.to, "dd ' de ' LLL")) : null
 
   return(
-    <div className="h-16 bg-zinc-900 px-4 rounded-xl flex items-center shadow-shape gap-4">
-      
+    <Input variant="primary">
       <div className="flex items-center gap-2 flex-1">
         <MapPin className="size-5 text-zinc-400 ml-2"/>
 
         <input
           disabled={isGuestsInputOpen}
           onChange={event => setDestination(event.target.value)}
-          className="bg-transparent text-lg placeholder-zinc-400 outline-none flex-1" type="text" placeholder="Para onde você vai?" />
+          className="bg-transparent text-lg placeholder-zinc-400 outline-none flex-1" type="text" placeholder="Para onde você vai?"
+        />
       </div>
 
-      <button onClick={openDatePicker} disabled={isGuestsInputOpen} className="flex items-center gap-2 text-left w-[220px]">
+      <button onClick={openDatePicker} disabled={isGuestsInputOpen} className="flex items-center gap-2 text-left w-fit">
         <Calendar className="size-5 text-zinc-400"/>
 
-        <span className="text-lg text-zinc-400 w-40 flex-1">
+        <span className="text-lg text-zinc-400 w-fit flex-1">
           {displayedDate || "Quando?"}
         </span>
       </button>
@@ -95,7 +96,6 @@ export function DestinationAndDateStep({
           </div>
         </div>
       )}
-
-    </div>
+    </Input>
   )
 }

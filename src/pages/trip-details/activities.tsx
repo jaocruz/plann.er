@@ -31,8 +31,8 @@ export function Activities(){
 
       {activities.map(category => {
         return(
-          <div className="space-y-2.5">
-            <div key={category.date} className="flex gap-2 items-baseline">
+          <div key={category.date} className="space-y-2.5">
+            <div className="flex gap-2 items-baseline">
               <span className="text-xl text-zinc-300 font-semibold">Dia {format(category.date, "dd")}</span>
               <span className="text-xs text-zinc-500">{format(category.date, "EEEE", { locale: ptBR})}</span>
             </div>

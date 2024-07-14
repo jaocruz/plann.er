@@ -3,6 +3,8 @@ import { X, AtSign, Plus } from "lucide-react"
 import type { FormEvent } from "react"
 
 import { Button } from "../../components/button"
+import { Input } from "../../components/input"
+import { Modal } from "../../components/modal"
 
 interface InviteGuestsModalProps {
   emailsToInvite: string[]
@@ -20,8 +22,7 @@ export function InviteGuestsModal({
   
   return(
     <div className="fixed inset-0 bg-black/60 flex items-center justify-center">
-      <div className="w-[640px] rounded-xl py-5 px-6 shadow-shape bg-zinc-900 space-y-5">
-
+      <Modal>
         <div className="space-y-2">
           
           <div className="flex items-center justify-between">
@@ -52,25 +53,26 @@ export function InviteGuestsModal({
 
         <div className="w-full h-px bg-zinc-800" />
 
-        <form onSubmit={addNewEmailToInvite} className="p-2.5 bg-zinc-950 border-zinc-800 rounded-lg flex items-center gap-2">
-        
-          <div className="px-2 flex items-center flex-1 gap-2">
-            <AtSign className="text-zinc-400 size-5"/>
+        <Input variant="secondary">
+          <form onSubmit={addNewEmailToInvite} className="bg-zinc-950 border-zinc-800 rounded-lg flex items-center gap-2 w-full">
+            <div className=" flex items-center flex-1 gap-2">
+              <AtSign className="text-zinc-400 size-5"/>
 
-            <input
-              type="email"
-              name="email"
-              placeholder="Digite o e-mail do convidado"
-              className="bg-transparent text-lg placeholder-zinc-400 outline-none flex-1"
-            />
-          </div>
-              
-          <Button type="submit" variant="primary">
-            Convidar
-            <Plus className="size-5"/>
-          </Button>
-        </form>
-      </div>
+              <input
+                type="email"
+                name="email"
+                placeholder="Digite o e-mail do convidado"
+                className="bg-transparent text-lg placeholder-zinc-400 outline-none flex-1"
+              />
+            </div>
+                
+            <Button type="submit" variant="primary">
+              Convidar
+              <Plus className="size-5"/>
+            </Button>
+          </form>
+        </Input>
+      </Modal>  
     </div>
   )
 }
