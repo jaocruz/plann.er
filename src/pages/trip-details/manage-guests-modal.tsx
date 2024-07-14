@@ -49,11 +49,15 @@ export function ManageGuestsModal({
   };
 
   const sendInvitesToBackend = async () => {
-      for (const email of newParticipants) {
-        await api.post(`/trips/${tripId}/invites`, { email });
-      }
-
-      window.document.location.reload()
+    const inviteRequests = [];
+  
+    for (const email of newParticipants) {
+      inviteRequests.push(api.post(`/trips/${tripId}/invites`, { email }));
+    }
+  
+    await Promise.all(inviteRequests);
+  
+    window.document.location.reload();
   };
   
   useEffect(() => {

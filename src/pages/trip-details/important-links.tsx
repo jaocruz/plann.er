@@ -40,7 +40,9 @@ export function ImportantLinks({
                         <a href={link.url} target="_blank" className="block text-xs text-zinc-400 truncate hover:text-zinc-200">{link.url}</a>
                       </div>
 
-                      <Link2 className="text-zinc-400 size-5 shrink-0" />
+                      <a href={link.url} target="_blank">
+                        <Link2 className="text-zinc-400 size-5 shrink-0" />
+                      </a>
                     </div>
                   )
                 })
