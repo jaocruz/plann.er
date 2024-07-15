@@ -1,13 +1,13 @@
 import { X, Tag, Calendar } from "lucide-react"
 
-import { api } from "../../lib/axios"
+import { api } from "../../../lib/axios"
 
 import { FormEvent } from "react"
 import { useParams } from "react-router-dom"
 
-import { Button } from "../../components/button"
-import { Input } from "../../components/input"
-import { Modal } from "../../components/modal"
+import { Input } from "../../../components/input"
+import { Modal } from "../../../components/modal"
+import { Button } from "../../../components/button"
 
 interface CreateActivityModalProps{
   closeCreateActivityModal: () => void
@@ -16,6 +16,7 @@ interface CreateActivityModalProps{
 export function CreateActivityModal({
   closeCreateActivityModal
 }: CreateActivityModalProps){
+
   const { tripId } = useParams()
 
   async function createActivity(event: FormEvent<HTMLFormElement>){
@@ -37,7 +38,6 @@ export function CreateActivityModal({
   return(
     <div className="fixed inset-0 bg-black/60 flex items-center justify-center">
       <Modal>
-
         <div className="space-y-2">
           <div className="flex items-center justify-between">
             <h2 className="text-lg font-semibold">Cadastrar atividade</h2>
@@ -74,10 +74,11 @@ export function CreateActivityModal({
             />
           </Input>
 
+          <div className="w-full h-px bg-zinc-800" />
+          
           <Button variant="primary" size="full">
             Salvar atividade
           </Button>
-          
         </form>
       </Modal>
     </div>

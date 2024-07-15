@@ -2,25 +2,26 @@ import { FormEvent, useState } from "react"
 import { DateRange } from "react-day-picker";
 import { useNavigate } from "react-router-dom";
 
-import { ConfirmTripModal } from "./confirm-trip-modal";
-import { InviteGuestsModal } from "./invite-guests-modal";
+import { api } from "../../lib/axios";
+
 import { InviteGuestsStep } from "./steps/invite-guests-step";
 import { DestinationAndDateStep } from "./steps/destination-and-date-step";
-import { api } from "../../lib/axios";
+
+import { ConfirmTripModal } from "./modals/confirm-trip-modal"; 
+import { InviteGuestsModal } from "./modals/invite-guests-modal"; 
 
 export function CreateTrip() {
   const navigate = useNavigate();
 
+  const [ownerName, setOwnerName] = useState("")
+  const [ownerEmail, setOwnerEmail] = useState("")
+  const [destination, setDestination] = useState("")
+  const [emailsToInvite, setEmailsToInvite] = useState([])
+  const [eventStartAndEndDates, setEventStartAndEndDates] = useState<DateRange | undefined>()
+
   const [isGuestsInputOpen, setIsGuestsInputOpen] = useState(false);
   const [isGuestsModalOpen, setIsGuestsModalOpen] = useState(false);
   const [isConfirmTripModalOpen, setIsConfirmTripModalOpen] = useState(false);
-
-  const [destination, setDestination] = useState("")
-  const [ownerName, setOwnerName] = useState("")
-  const [ownerEmail, setOwnerEmail] = useState("")
-  const [eventStartAndEndDates, setEventStartAndEndDates] = useState<DateRange | undefined>()
-
-  const [emailsToInvite, setEmailsToInvite] = useState([])
 
   function openGuestsInput(){
     setIsGuestsInputOpen(true)

@@ -28,7 +28,6 @@ export function Activities(){
 
   return(
     <div className="space-y-8">
-
       {activities.map(category => {
         return(
           <div key={category.date} className="space-y-2.5">
@@ -48,16 +47,15 @@ export function Activities(){
                         <span className="text-zinc-400 ml-auto">{format(activity.occurs_at, "HH:mm")}h</span>
                       </div>
                     </div>
-                  )
-                })}
+                  )}
+                )}
               </div>
             ) : (
               <p className="text-zinc-500 text-sm">Nenhuma atividade cadastrada nessa data.</p>
             )}
           </div>
-        )
-      })}
-
+        )}
+      )}
     </div>
   )
 }

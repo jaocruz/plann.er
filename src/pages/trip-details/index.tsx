@@ -7,13 +7,17 @@ import { Activities } from "./activities";
 import { ImportantLinks } from "./important-links";
 import { DestinationAndDateHeader } from "./destination-and-date-header";
 
-import { ManageGuestsModal } from "./manage-guests-modal";
-import { CreateNewLinkModal } from "./create-new-link-modal";
-import { CreateActivityModal } from "./create-activity-modal";
-import { ChangeDestinationAndDateModal } from "./change-destination-and-date-modal";
+import { ManageGuestsModal } from "./modals/manage-guests-modal";
+import { CreateNewLinkModal } from "./modals/create-new-link-modal";
+import { CreateActivityModal } from "./modals/create-activity-modal";
+import { ChangeDestinationAndDateModal } from "./modals/change-destination-and-date-modal";
 
 export function TripDetails(){
+  
+  const [isManageGuestsModalOpen, setIsManageGuestsModalOpen]= useState(false)
+  const [isCreateNewLinkModalOpen, setIsCreateNewLinkModalOpen] = useState(false)
   const [isCreateActivityModalOpen, setIsCreateActivityModalOpen] = useState(false)
+  const[isChangeDestinationAndDateModalOpen, setIsChangeDestinationAndDateModalOpen] = useState(false)
 
   function openCreateActivityModal(){
     setIsCreateActivityModalOpen(true)
@@ -23,8 +27,6 @@ export function TripDetails(){
     setIsCreateActivityModalOpen(false)
   }
 
-  const [isCreateNewLinkModalOpen, setIsCreateNewLinkModalOpen] = useState(false)
-
   function openCreateNewLinkModal(){
     setIsCreateNewLinkModalOpen(true)
   }
@@ -33,8 +35,6 @@ export function TripDetails(){
     setIsCreateNewLinkModalOpen(false)
   }
 
-  const [isManageGuestsModalOpen, setIsManageGuestsModalOpen]= useState(false)
-
   function openManageGuestsModal(){
     setIsManageGuestsModalOpen(true)
   }
@@ -42,8 +42,6 @@ export function TripDetails(){
   function closeManageGuestsModal(){
     setIsManageGuestsModalOpen(false)
   }
-
-  const[isChangeDestinationAndDateModalOpen, setIsChangeDestinationAndDateModalOpen] = useState(false)
 
   function openChangeDestinationAndDateModalOpen(){
     setIsChangeDestinationAndDateModalOpen(true)

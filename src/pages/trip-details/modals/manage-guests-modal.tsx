@@ -1,13 +1,13 @@
 import { AtSign, Plus, X } from "lucide-react"
 
-import { api } from "../../lib/axios"
+import { api } from "../../../lib/axios"
 
 import { useParams } from "react-router-dom"
 import { FormEvent, useEffect, useState } from "react"
 
-import { Modal } from "../../components/modal"
-import { Input } from "../../components/input"
-import { Button } from "../../components/button"
+import { Modal } from "../../../components/modal"
+import { Input } from "../../../components/input"
+import { Button } from "../../../components/button"
 
 interface ManageGuestsModalProps{
   closeManageGuestsModal: () => void,
@@ -74,6 +74,7 @@ export function ManageGuestsModal({
               <X className="size-5 text-zinc-400"/>
             </button>
           </div>
+
           <p className="text-sm text-zinc-400">
             Os novos convidados irão receber e-mails para confirmar a participação na viagem.
           </p>
@@ -82,13 +83,13 @@ export function ManageGuestsModal({
         <div className="flex flex-wrap gap-2">
         {
           participants.map((participants) => (
-              <div key={participants.email} className="py-1.5 px-2.5 rounded-md bg-zinc-800 flex items-center gap-2">
-                <span className="text-zinc-300">{participants.email}</span>
+            <div key={participants.email} className="py-1.5 px-2.5 rounded-md bg-zinc-800 flex items-center gap-2">
+              <span className="text-zinc-300">{participants.email}</span>
 
-                <button type="button">
-                  <X className="size-4 text-zinc-400"/>
-                </button>
-              </div>
+              <button type="button">
+                <X className="size-4 text-zinc-400"/>
+              </button>
+            </div>
           ))
         }
 

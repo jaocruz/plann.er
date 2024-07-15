@@ -1,11 +1,13 @@
 import { MapPin, Calendar, Settings2 } from "lucide-react";
 
+import { api } from "../../lib/axios";
+
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import { Button } from "../../components/button";
-import { api } from "../../lib/axios";
 import { format } from "date-fns";
+
+import { Button } from "../../components/button";
 
 interface Trip{
   id: string
@@ -22,6 +24,7 @@ interface DestinationAndDateHeader{
 export function DestinationAndDateHeader({
   openChangeDestinationAndDateModalOpen
 }: DestinationAndDateHeader){
+  
   const { tripId } = useParams()
 
   const [trip, setTrip] = useState<Trip | undefined>()

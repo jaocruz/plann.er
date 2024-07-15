@@ -21,6 +21,7 @@ interface Guests{
 export function Guests({
   openManageGuestsModal
 }: Guests){
+  
   const { tripId } = useParams()
 
   const [participants, setParticipants] = useState<Participant[]>([])

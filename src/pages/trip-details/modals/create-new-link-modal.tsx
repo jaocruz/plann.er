@@ -3,11 +3,11 @@ import { X, Tag, Link2 } from "lucide-react"
 import { FormEvent } from "react"
 import { useParams } from "react-router-dom"
 
-import { api } from "../../lib/axios"
+import { api } from "../../../lib/axios"
 
-import { Button } from "../../components/button"
-import { Input } from "../../components/input"
-import { Modal } from "../../components/modal"
+import { Input } from "../../../components/input"
+import { Modal } from "../../../components/modal"
+import { Button } from "../../../components/button"
 
 interface CreateNewLinkModalProps{
   closeCreateNewLinkModal: () => void
@@ -16,6 +16,7 @@ interface CreateNewLinkModalProps{
 export function CreateNewLinkModal({
   closeCreateNewLinkModal
 }: CreateNewLinkModalProps){
+
   const { tripId } = useParams()
 
   async function createNewLink(event:
@@ -46,6 +47,7 @@ export function CreateNewLinkModal({
               <X className="size-5 text-zinc-400"/>
             </button>
           </div>
+
           <p className="text-sm text-zinc-400">
             Todos convidados podem visualizar os links importantes.
           </p>
@@ -62,7 +64,6 @@ export function CreateNewLinkModal({
               className="bg-transparent text-lg placeholder-zinc-400 outline-none flex-1"
             />
           </Input>
-          
 
           <Input variant="secondary">
             <Link2 className="text-zinc-400 size-5"/>
@@ -75,10 +76,11 @@ export function CreateNewLinkModal({
             />
           </Input>
 
+          <div className="w-full h-px bg-zinc-800" />
+          
           <Button variant="primary" size="full">
             Salvar link
           </Button>
-
         </form>
       </Modal>
     </div>
